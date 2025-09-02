@@ -14,9 +14,20 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons as soon as DOM is loaded
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error('Lucide library not loaded correctly');
+            }
+        });
+    </script>
+    
+    @stack('head')
 </head>
 <body class="font-sans antialiased overflow-x-hidden">
     <div class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
@@ -56,5 +67,15 @@
     </script>
     
     @stack('scripts')
+    
+    <script>
+        // Additional script to make sure Lucide icons are initialized
+        // This helps if there are any icons that weren't initialized by other methods
+        document.addEventListener('alpine:initialized', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
 </body>
 </html>

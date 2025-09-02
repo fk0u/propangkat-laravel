@@ -8,7 +8,7 @@
         <div x-show="true"
              x-transition:enter="transition ease-out duration-300 delay-300"
              x-transition:enter-start="opacity-0 transform scale-0"
-             x-transition:enter-end="opacity-100 transform scale-100"
+             x-transition:enter-end="opac   ity-100 transform scale-100"
              class="absolute top-4 right-4 z-20">
             <button @click="darkMode = !darkMode" 
                     class="p-3 rounded-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 shadow-lg">
